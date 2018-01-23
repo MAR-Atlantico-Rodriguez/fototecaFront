@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -11,6 +12,7 @@ import { PaginaDeErrorComponent } from './components/pagina-de-error/pagina-de-e
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { SeccionComponent } from './components/seccion/seccion.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+import {ImagenesService} from './services/imagenes.service';
 
 
 @NgModule({
@@ -26,9 +28,12 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    ImagenesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
