@@ -16,7 +16,12 @@ export class ImagenesService {
   constructor(public http: HttpClient) { }
 
   getImagenes(): Observable<any> {
-    const url = this.url + '/apiImagenes';
+    const url = this.url + '/imagenes';
+    return this.http.get(url);
+  }
+
+  getImagenesSeccion(id): Observable<any> {
+    const url = this.url + '/seccion/' + id;
     return this.http.get(url);
   }
 }

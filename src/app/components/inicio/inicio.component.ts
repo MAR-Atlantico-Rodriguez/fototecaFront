@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ImagenesService} from '../../services/imagenes.service';
+import {environment} from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-inicio',
@@ -8,6 +9,7 @@ import {ImagenesService} from '../../services/imagenes.service';
 })
 export class InicioComponent implements OnInit {
   public imagenes = [];
+  public ipServer = environment.ipServer;
 
   constructor(private imagenService: ImagenesService) { }
 
@@ -20,6 +22,7 @@ export class InicioComponent implements OnInit {
       result => {
         if (result.code !== 200) {
           console.log(result);
+          this.imagenes = result;
         } else {
           this.imagenes = result.data;
         }
@@ -29,4 +32,7 @@ export class InicioComponent implements OnInit {
       });
   }
 
+  getVerImagen(id) {
+    alert(id);
+  }
 }

@@ -11,7 +11,7 @@
   padding: 0;
 }
 #tiles li:hover img{
-	opacity:0.8;
+	opacity:1;
 }
 /**
  * Grid items
@@ -23,13 +23,14 @@
 	border-radius: 2px;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
-	display: none;
+  box-shadow: 1px 1px 15px 1px #aaa;
 	cursor: pointer;
 	border-radius: 0.2em;
 }
 #tiles li img{
 	border-top-left-radius:0.2em;
 	border-top-right-radius:0.2em;
+  opacity:0.9;
 }
 #tiles li.inactive {
   visibility: hidden;
