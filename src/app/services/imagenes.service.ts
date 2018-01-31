@@ -11,7 +11,6 @@ export class ImagenesService {
 
   /*Url API*/
   public url = environment.apiUrl;
-  public imagenes = new Subject<any>();
 
   constructor(public http: HttpClient) { }
 
@@ -21,7 +20,12 @@ export class ImagenesService {
   }
 
   getImagenesSeccion(id): Observable<any> {
-    const url = this.url + '/seccion/' + id;
+    const url = this.url + '/seccion' + id;
+    return this.http.get(url);
+  }
+
+  getSecciones(): Observable<any> {
+    const url = this.url + '/secciones';
     return this.http.get(url);
   }
 }

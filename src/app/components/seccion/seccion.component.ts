@@ -19,7 +19,11 @@ export class SeccionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getImagenes();
+    if (this.id_seccion > 0) {
+      this.getImagenes();
+    }else{
+      this.getSecciones();
+    }
   }
 
   getImagenes() {
@@ -35,5 +39,11 @@ export class SeccionComponent implements OnInit {
       error => {
         console.log(<any>error);
       });
+  }
+
+  getSecciones() {
+    this.imagenService.getSecciones().subscribe(data => {
+      console.log(data);
+    });
   }
 }
