@@ -3,6 +3,7 @@
  */
 #main {
 	margin-top: 9em;
+  margin-bottom: 2em;
 }
 #tiles {
   list-style-type: none;

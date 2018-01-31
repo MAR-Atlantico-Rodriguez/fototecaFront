@@ -20,7 +20,7 @@ export class ImagenesService {
   }
 
   getImagenesSeccion(id): Observable<any> {
-    const url = this.url + '/seccion' + id;
+    const url = this.url + '/seccion/' + id;
     return this.http.get(url);
   }
 

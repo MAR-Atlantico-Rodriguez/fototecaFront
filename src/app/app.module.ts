@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 
+
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -14,6 +15,7 @@ import { SeccionComponent } from './components/seccion/seccion.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import {ImagenesService} from './services/imagenes.service';
 
+import { NgMasonryGridModule } from 'ng-masonry-grid';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import {ImagenesService} from './services/imagenes.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgMasonryGridModule
   ],
   providers: [
     ImagenesService

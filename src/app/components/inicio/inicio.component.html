@@ -1,15 +1,21 @@
 <div id="main" role="main">
+<ng-masonry-grid
+  [masonryOptions]="{ transitionDuration: '0.8s', gutter: 5 }"
+  [useAnimation]="true"
+  [useImagesLoaded]="true"
+  [scrollAnimationOptions]="{ animationEffect: 'effect-2', minDuration : 0.4, maxDuration : 0.7 }">
+  <!-- Masonry Grid Item -->
   <ul id="tiles">
-
-    <li *ngFor="let img of imagenes">
+  <ng-masonry-grid-item *ngFor="let img of imagenes">
+    <li>
       <img src="{{ipServer + img.urlImg}}_th.jpg" width="282px" (click)="getVerImagen(img.id)">
       <div class="post-info">
         <div class="post-basic-info">
           <h3><a (click)="getVerImagen(img.id)">{{img.titulo}}</a></h3>
-          <span><a href="seccion/{{img.id_categoria}}"><label> </label>{{img.categoria}}</a></span>
+          <span><a routerLink="seccion/{{img.id_categoria}}"><label> </label>{{img.categoria}}</a></span>
           <p>{{img.descripcion}}</p>
         </div>
-        <!--div class="post-info-rate-share">
+        <div class="post-info-rate-share">
           <div class="rateit">
             <span> </span>
           </div>
@@ -17,10 +23,11 @@
             <span> </span>
           </div>
           <div class="clear"> </div>
-        </div-->
+        </div>
       </div>
     </li>
-
+  </ng-masonry-grid-item>
   </ul>
-</div>
+</ng-masonry-grid>
 
+</div>
