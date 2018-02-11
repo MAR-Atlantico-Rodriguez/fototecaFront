@@ -4,15 +4,10 @@ import {environment} from '../../../environments/environment.prod';
 import {ActivatedRoute} from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-
-declare var jQuery: any;
-declare var $: any;
-
-
 @Component({
   selector: 'app-seccion',
   templateUrl: './seccion.component.html',
-  styleUrls: ['./seccion.component.css', '../../../../node_modules/ng-masonry-grid/ng-masonry-grid.css']
+  styleUrls: ['./seccion.component.css']
 })
 
 export class SeccionComponent implements OnInit {

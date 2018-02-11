@@ -1,36 +1,9 @@
-<div class="header">
-  <div class="wrap">
-    <div class="logo">
-      <a href="/">
-        <img src="../assets/images/logo.png" title="Universidad Nacional del Nordeste" width="200px">
-      </a>
-    </div>
-    <div class="nav-icon">
-      <a class="right_bt" id="activator" style="cursor: pointer;"><span> </span> </a>
-    </div>
-
-    <app-menu></app-menu>
-
-    <div class="top-searchbar">
-      <form>
-        <input type="text"><input type="submit" value="">
-      </form>
-    </div>
-    <div class="clear"> </div>
-  </div>
-</div>
-
+<app-header></app-header>
 
 <div class="content">
   <div class="wrap">
-
     <router-outlet></router-outlet>
-
   </div>
 </div>
 
-
-<div class="footer">
-  <p>Fototeca Institucional <a href="http://www.unne.edu.ar" target="_blank">U.N.N.E</a></p>
-</div>
-
+<app-footer></app-footer>

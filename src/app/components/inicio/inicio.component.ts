@@ -38,4 +38,5 @@ export class InicioComponent implements OnInit {
   getVerImagen(id) {
     alert(id);
   }
+
 }

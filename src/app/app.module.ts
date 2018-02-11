@@ -16,6 +16,8 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import {ImagenesService} from './services/imagenes.service';
 
 import { NgMasonryGridModule } from 'ng-masonry-grid';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { NgMasonryGridModule } from 'ng-masonry-grid';
     PaginaDeErrorComponent,
     ContactoComponent,
     SeccionComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

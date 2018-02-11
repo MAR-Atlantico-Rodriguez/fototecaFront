@@ -3,31 +3,20 @@
   [masonryOptions]="{ transitionDuration: '0.8s', gutter: 5 }"
   [useAnimation]="true"
   [useImagesLoaded]="true"
-  [scrollAnimationOptions]="{ animationEffect: 'effect-2', minDuration : 0.4, maxDuration : 0.7 }">
-  <!-- Masonry Grid Item -->
-  <ul id="tiles">
-  <ng-masonry-grid-item *ngFor="let img of imagenes">
+  [scrollAnimationOptions]="{ animationEffect: 'effect-13', minDuration : 0.4,  minDuration : 0.1, maxDuration : 0.1  }">
+
+  <ng-masonry-grid-item id="tiles" *ngFor="let img of imagenes;" (click)="getVerImagen(img.id)">
     <li>
-      <img src="{{ipServer + img.urlImg}}_th.jpg" width="282px" (click)="getVerImagen(img.id)">
-      <div class="post-info">
-        <div class="post-basic-info">
-          <h3><a (click)="getVerImagen(img.id)">{{img.titulo}}</a></h3>
-          <span><a routerLink="seccion/{{img.id_categoria}}"><label> </label>{{img.categoria}}</a></span>
-          <p>{{img.descripcion}}</p>
-        </div>
-        <div class="post-info-rate-share">
-          <div class="rateit">
-            <span> </span>
-          </div>
-          <div class="post-share">
-            <span> </span>
-          </div>
-          <div class="clear"> </div>
-        </div>
+    <img src="{{ipServer + img.urlImg}}_th.jpg" width="282px" >
+    <div class="post-info">
+      <div class="post-basic-info">
+        <h3><a >{{img.titulo}}</a></h3>
+        <span><a routerLink="seccion/{{img.id_categoria}}"><label> </label>{{img.categoria}}</a></span>
+        <p>{{img.descripcion}}</p>
       </div>
+
+    </div>
     </li>
   </ng-masonry-grid-item>
-  </ul>
 </ng-masonry-grid>
-
 </div>
