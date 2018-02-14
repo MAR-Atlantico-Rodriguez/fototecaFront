@@ -1,11 +1,9 @@
 <div id="main" role="main">
-
   <ng-masonry-grid
     [masonryOptions] = "{ transitionDuration: '0.8s', gutter: 5 }"
     [useAnimation] = "true"
     [useImagesLoaded] = "true"
     [scrollAnimationOptions] = "{ animationEffect: 'effect-13', minDuration : 0.4,  minDuration : 0.1, maxDuration : 0.1  }"
-
     (scrolled)="onScrollDown()">
 
     <ng-masonry-grid-item id="tiles" *ngFor="let img of imagenes;">
@@ -30,4 +28,6 @@
       </li>
     </ng-masonry-grid-item>
   </ng-masonry-grid>
+
+  <button (click)="agregarImagenesSeccion()">Agregar imagenes</button>
 </div>

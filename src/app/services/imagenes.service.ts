@@ -11,6 +11,11 @@ export class ImagenesService {
 
   /*Url API*/
   public url = environment.apiUrl;
+  public pagina = 0;
+  public tamanioPagina = 0;
+  public totalPaginas: Number = 0;
+  public totalElementos: Number = 0;
+  public current_page = 1;
 
   constructor(public http: HttpClient) { }
 
@@ -20,7 +25,7 @@ export class ImagenesService {
   }
 
   getImagenesSeccion(id): Observable<any> {
-    const url = this.url + '/seccion/' + id;
+    const url = this.url + '/seccion/' + id + '/' + this.tamanioPagina + '?page=' + this.current_page;
     return this.http.get(url);
   }
 

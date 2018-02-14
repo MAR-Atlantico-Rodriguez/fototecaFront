@@ -3,6 +3,7 @@ import {ImagenesService} from '../../services/imagenes.service';
 import {environment} from '../../../environments/environment.prod';
 import {ActivatedRoute} from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-seccion',
@@ -14,11 +15,16 @@ export class SeccionComponent implements OnInit {
   public imagenes = [];
   public ipServer = environment.ipServer;
   public id_seccion = 0;
+  public pagina = 0;
+  public tamanioPagina = 1;
+  public current_page = 1;
 
   constructor(private imagenService: ImagenesService,
               private route: ActivatedRoute,
               private titleService: Title) {
     this.route.params.subscribe(res => this.id_seccion = ((res.id > 0) ? res.id : 0));
+    this.imagenService.tamanioPagina = this.tamanioPagina;
+    this.imagenService.pagina = this.pagina;
   }
 
   ngOnInit() {
@@ -33,13 +39,14 @@ export class SeccionComponent implements OnInit {
     this.imagenService.getImagenesSeccion(this.id_seccion).subscribe(
       result => {
         if (result.code !== 200) {
-          console.log(result);
-          if (result.length > 0) {
-            this.titleService.setTitle('UNNE - Seccion - ' + result[0].categoria);
-            this.imagenes = result;
+          if (result.data.length > 0) {
+            this.titleService.setTitle('UNNE - Seccion - ' + result.data[0].categoria);
+            this.imagenes = result.data;
+            this.imagenService.totalElementos = result.total;
+            this.imagenService.totalPaginas = result.last_page;
           }
         } else {
-          this.imagenes = result.data;
+          alert('Error, de transmision codigo: ' + result.code);
         }
       },
       error => {
@@ -57,5 +64,14 @@ export class SeccionComponent implements OnInit {
 
   getVerImagen(id) {
     alert(id);
+  }
+
+  agregarImagenesSeccion() {
+    this.imagenService.current_page++;
+    this.imagenService.getImagenesSeccion(this.id_seccion).subscribe(data => {
+      data.data.forEach(img => {
+        this.imagenes.push(img);
+      });
+    });
   }
 }
