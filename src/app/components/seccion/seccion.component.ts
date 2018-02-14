@@ -13,12 +13,12 @@ import { Title } from '@angular/platform-browser';
 export class SeccionComponent implements OnInit {
   public imagenes = [];
   public ipServer = environment.ipServer;
-  private id_seccion = 0;
+  public id_seccion = 0;
 
   constructor(private imagenService: ImagenesService,
               private route: ActivatedRoute,
               private titleService: Title) {
-    this.route.params.subscribe(res => this.id_seccion = res.id);
+    this.route.params.subscribe(res => this.id_seccion = ((res.id > 0) ? res.id : 0));
   }
 
   ngOnInit() {
@@ -34,8 +34,10 @@ export class SeccionComponent implements OnInit {
       result => {
         if (result.code !== 200) {
           console.log(result);
-          this.titleService.setTitle('Seccion - ' + result[0].categoria);
-          this.imagenes = result;
+          if (result.length > 0) {
+            this.titleService.setTitle('UNNE - Seccion - ' + result[0].categoria);
+            this.imagenes = result;
+          }
         } else {
           this.imagenes = result.data;
         }
@@ -47,8 +49,13 @@ export class SeccionComponent implements OnInit {
 
   getSecciones() {
     this.imagenService.getSecciones().subscribe(data => {
-      this.titleService.setTitle('Secciones');
+      this.titleService.setTitle('UNNE - Secciones');
       this.imagenes = data;
+      console.log(data);
     });
+  }
+
+  getVerImagen(id) {
+    alert(id);
   }
 }

@@ -42,6 +42,12 @@
  	display: block;
 }
 
+#imgSecciones {
+  float: right;
+  width: 70px;
+  display: -webkit-box;
+  color: #b5b5b5;
+}
 /**
  * Grid item text
  */
